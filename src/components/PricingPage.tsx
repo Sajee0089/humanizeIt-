@@ -80,7 +80,8 @@ export const PricingPage: React.FC = () => {
       
       // Add return URL to PayPal
       const appUrl = window.location.origin;
-      const returnUrl = `${appUrl}/payment/verify?token=${token}&plan=${plan}&billing=${billing}`;
+      const redirect = localStorage.getItem('redirectAfterAuth');
+      const returnUrl = `${appUrl}/payment/verify?token=${token}&plan=${plan}&billing=${billing}${redirect ? `&redirect=${encodeURIComponent(redirect)}` : ''}`;
       redirectUrl.searchParams.append('return', returnUrl);
 
       window.location.href = redirectUrl.toString();
@@ -185,15 +186,20 @@ export const PricingPage: React.FC = () => {
   const handleAction = (e: React.MouseEvent<HTMLButtonElement>, link: string, isExternal: boolean, planName: string) => {
     if (!user) {
       e.preventDefault();
-      // Redirect to signup if not logged in
-      navigate('/signup', { state: { from: 'landing' } });
+      navigate('/signup');
       return;
     }
 
     if (isExternal) {
       handleUpgrade(planName, link);
     } else {
-      navigate(link);
+      const redirect = localStorage.getItem('redirectAfterAuth');
+      if (redirect) {
+        localStorage.removeItem('redirectAfterAuth');
+        navigate(redirect);
+      } else {
+        navigate(link);
+      }
     }
   };
 

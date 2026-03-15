@@ -24,8 +24,9 @@ export const PaymentVerifyPage: React.FC = () => {
       const token = searchParams.get('token');
       const plan = searchParams.get('plan');
       const billing = searchParams.get('billing');
+      const redirect = searchParams.get('redirect');
       const paymentId = searchParams.get('paymentId') || searchParams.get('token'); // PayPal might pass paymentId or we use token
-
+      
       if (!token || !plan || !billing) {
         setErrorMessage('Missing required payment information.');
         setStatus('error');
@@ -64,7 +65,12 @@ export const PaymentVerifyPage: React.FC = () => {
           
           // Redirect to dashboard after 3 seconds
           setTimeout(() => {
-            navigate('/dashboard');
+            if (redirect) {
+              localStorage.removeItem('redirectAfterAuth');
+              navigate(decodeURIComponent(redirect));
+            } else {
+              navigate('/dashboard');
+            }
           }, 3000);
         } else {
           setErrorMessage(data.error || 'Payment verification failed.');

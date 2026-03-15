@@ -67,7 +67,7 @@ export const LandingPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-12 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-20">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-[120px]" />
@@ -128,7 +128,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-slate-50 dark:bg-white/[0.02]">
+      <section id="features" className="py-16 bg-slate-50 dark:bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Powerful AI Toolkit</h2>
@@ -139,7 +139,8 @@ export const LandingPage: React.FC = () => {
             {features.map((feature, idx) => (
               <Link
                 key={idx}
-                to={feature.path}
+                to={user ? feature.path : "/signup"}
+                onClick={() => !user && localStorage.setItem('redirectAfterAuth', feature.path)}
                 className="group p-8 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm hover:border-primary transition-all hover:shadow-xl hover:shadow-primary/5"
               >
                 <div className="w-12 h-12 bg-slate-100 dark:bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -156,7 +157,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-6">
@@ -177,7 +178,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* Waitlist Section */}
-      <section className="py-24 bg-primary/5">
+      <section className="py-16 bg-primary/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Join the Waitlist for Pro Features</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-8">Get notified when we launch unlimited plans and API access.</p>

@@ -17,9 +17,9 @@ export const ToolTabs: React.FC<ToolTabsProps> = ({ activeTab }) => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 overflow-x-auto no-scrollbar shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-start sm:justify-center py-3 gap-8 sm:gap-12 min-w-max">
+        <div className="flex items-center justify-center py-3 gap-4 sm:gap-8">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             const Icon = tab.icon;
@@ -47,7 +47,7 @@ export const ToolTabs: React.FC<ToolTabsProps> = ({ activeTab }) => {
                   {tab.id === 'humanize' ? 'Humanize' : 
                    tab.id === 'detect' ? 'Detect' : 
                    tab.id === 'image-detect' ? 'Image' : 
-                   tab.id === 'plagiarism' ? 'Check' : 'Summarize'}
+                   tab.id === 'plagiarism' ? 'Plagiarism' : 'Summarize'}
                 </span>
                 
                 {isActive && (

@@ -53,8 +53,8 @@ export const SignupPage: React.FC = () => {
         console.warn("Profile creation error (might already exist):", profileError);
       }
       
-      const from = location.state?.from;
-      if (from === 'landing') {
+      const redirect = localStorage.getItem('redirectAfterAuth');
+      if (redirect) {
         navigate('/pricing');
       } else {
         navigate('/dashboard');
