@@ -1,0 +1,7 @@
+{
+  "name": "Copy of HumanizeIt",
+  "description": "Turn AI-generated text into natural, human-like writing with advanced humanization modes and AI detection scoring.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
