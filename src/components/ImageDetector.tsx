@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { SEO } from './SEO';
 import { motion } from 'motion/react';
 import { Bot, Upload, Loader2, AlertCircle, CheckCircle2, XCircle, Info, Image as ImageIcon, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -51,6 +52,11 @@ export const ImageDetector: React.FC = () => {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SEO 
+        title="AI Image Detector" 
+        description="Detect AI-generated images from Midjourney, DALL-E, and other AI image generators with our AI image detector." 
+        keywords="ai image detector, detect ai images, ai generated image checker, image authenticity"
+      />
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Upload Section */}
         <div className="lg:col-span-6 space-y-6">

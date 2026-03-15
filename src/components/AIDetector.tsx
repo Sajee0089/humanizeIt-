@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SEO } from './SEO';
 import { motion } from 'motion/react';
 import { BrainCircuit, Loader2, Trash2, AlertCircle, Info, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -46,6 +47,11 @@ export const AIDetector: React.FC = () => {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SEO 
+        title="AI Detector" 
+        description="Analyze text for AI patterns with sentence-by-sentence highlights to detect AI-generated content." 
+        keywords="ai detector, gpt detector, check for ai text, ai writing checker"
+      />
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Input Section */}
         <div className="lg:col-span-7 space-y-6">

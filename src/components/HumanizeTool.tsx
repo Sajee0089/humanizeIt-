@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { SEO } from './SEO';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Sparkles, 
@@ -370,6 +371,11 @@ export const HumanizeTool: React.FC = () => {
 
   return (
     <main className="pt-24 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SEO 
+        title="AI Text Humanizer" 
+        description="Convert AI-generated text into natural, human-sounding writing that bypasses AI detectors." 
+        keywords="ai humanizer, bypass ai detection, humanize ai text, ai writing tool"
+      />
       <div className="grid lg:grid-cols-12 gap-8">
         
         {/* Left Column: Controls & Input */}

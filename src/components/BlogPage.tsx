@@ -22,6 +22,97 @@ export const BlogPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const MOCK_POSTS: Post[] = [
+    {
+      id: '1',
+      title: 'How to Bypass AI Detectors in 2026',
+      slug: 'how-to-bypass-ai-detectors-2026',
+      excerpt: 'Learn the latest techniques to make your AI-generated content indistinguishable from human writing.',
+      content: '',
+      created_at: '2026-03-10T10:00:00Z',
+      author_name: 'HumanizeIt Team',
+      category: 'Guides',
+      image_url: 'https://picsum.photos/seed/ai/800/400'
+    },
+    {
+      id: '2',
+      title: 'The Future of AI Writing: Human-AI Collaboration',
+      slug: 'future-of-ai-writing',
+      excerpt: 'Why the best content of the future will be a blend of artificial intelligence and human creativity.',
+      content: '',
+      created_at: '2026-03-05T12:00:00Z',
+      author_name: 'Sarah Chen',
+      category: 'Insights',
+      image_url: 'https://picsum.photos/seed/future/800/400'
+    },
+    {
+      id: '3',
+      title: 'Understanding Perplexity and Burstiness',
+      slug: 'understanding-perplexity-and-burstiness',
+      excerpt: 'A deep dive into the two most important metrics used by AI detectors like GPTZero and Turnitin.',
+      content: '',
+      created_at: '2026-02-28T15:00:00Z',
+      author_name: 'Dr. James Wilson',
+      category: 'Technical',
+      image_url: 'https://picsum.photos/seed/data/800/400'
+    },
+    {
+      id: '4',
+      title: 'Best Free AI Humanizer Tool in 2026 — Turn AI Text Human Instantly',
+      slug: 'best-free-ai-humanizer-tool',
+      excerpt: 'Looking for the best free AI humanizer? HumanizeIt converts ChatGPT, Gemini & Bard text into 100% human-sounding content that bypasses all AI detectors. Try free today.',
+      content: '',
+      created_at: '2026-03-15T10:00:00Z',
+      author_name: 'HumanizeIt Team',
+      category: 'Guides',
+      image_url: 'https://picsum.photos/seed/humanizer/800/400'
+    },
+    {
+      id: '5',
+      title: 'Free AI Detector Online 2026 — Check If Text Is AI Generated Instantly',
+      slug: 'free-ai-detector-online',
+      excerpt: 'Use HumanizeIt\'s free AI detector to check if any text was written by ChatGPT, Gemini, or other AI tools. Get instant results with high accuracy. No sign-up needed.',
+      content: '',
+      created_at: '2026-03-15T10:00:00Z',
+      author_name: 'HumanizeIt Team',
+      category: 'Guides',
+      image_url: 'https://picsum.photos/seed/detector/800/400'
+    },
+    {
+      id: '6',
+      title: 'Free Plagiarism Checker Online 2026 — Check Content Originality Instantly',
+      slug: 'free-plagiarism-checker-online',
+      excerpt: 'HumanizeIt\'s free plagiarism checker scans your content against billions of web pages to detect copied text. Get an originality report in seconds. Try free now.',
+      content: '',
+      created_at: '2026-03-15T10:00:00Z',
+      author_name: 'HumanizeIt Team',
+      category: 'Guides',
+      image_url: 'https://picsum.photos/seed/plagiarism/800/400'
+    },
+    {
+      id: '7',
+      title: 'Free AI Image Detector 2026 — Find Out If an Image Was AI Generated',
+      slug: 'ai-image-detector-free',
+      excerpt: 'Use HumanizeIt\'s free AI image detector to instantly identify AI-generated images from Midjourney, DALL-E, Stable Diffusion & more. Fast, accurate, free to try.',
+      content: '',
+      created_at: '2026-03-15T10:00:00Z',
+      author_name: 'HumanizeIt Team',
+      category: 'Guides',
+      image_url: 'https://picsum.photos/seed/image-detector/800/400'
+    },
+    {
+      id: '8',
+      title: 'Free AI Summarizer Tool 2026 — Summarize Any Text in Seconds',
+      slug: 'free-ai-summarizer-tool',
+      excerpt: 'HumanizeIt\'s free AI summarizer condenses long articles, research papers, PDFs, and documents into clear, accurate summaries instantly. Save hours of reading time. Try free.',
+      content: '',
+      created_at: '2026-03-15T10:00:00Z',
+      author_name: 'HumanizeIt Team',
+      category: 'Guides',
+      image_url: 'https://picsum.photos/seed/summarizer/800/400'
+    }
+  ];
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -36,45 +127,11 @@ export const BlogPage: React.FC = () => {
         if (data && data.length > 0) {
           setPosts(data as Post[]);
         } else {
-          // Fallback mock data if table is empty
-          setPosts([
-            {
-              id: '1',
-              title: 'How to Bypass AI Detectors in 2026',
-              slug: 'how-to-bypass-ai-detectors-2026',
-              excerpt: 'Learn the latest techniques to make your AI-generated content indistinguishable from human writing.',
-              content: '',
-              created_at: '2026-03-10T10:00:00Z',
-              author_name: 'HumanizeIt Team',
-              category: 'Guides',
-              image_url: 'https://picsum.photos/seed/ai/800/400'
-            },
-            {
-              id: '2',
-              title: 'The Future of AI Writing: Human-AI Collaboration',
-              slug: 'future-of-ai-writing',
-              excerpt: 'Why the best content of the future will be a blend of artificial intelligence and human creativity.',
-              content: '',
-              created_at: '2026-03-05T12:00:00Z',
-              author_name: 'Sarah Chen',
-              category: 'Insights',
-              image_url: 'https://picsum.photos/seed/future/800/400'
-            },
-            {
-              id: '3',
-              title: 'Understanding Perplexity and Burstiness',
-              slug: 'understanding-perplexity-and-burstiness',
-              excerpt: 'A deep dive into the two most important metrics used by AI detectors like GPTZero and Turnitin.',
-              content: '',
-              created_at: '2026-02-28T15:00:00Z',
-              author_name: 'Dr. James Wilson',
-              category: 'Technical',
-              image_url: 'https://picsum.photos/seed/data/800/400'
-            }
-          ]);
+          setPosts(MOCK_POSTS);
         }
       } catch (err) {
         console.error("Error fetching posts:", err);
+        setPosts(MOCK_POSTS);
       } finally {
         setLoading(false);
       }

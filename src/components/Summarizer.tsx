@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { SEO } from './SEO';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   FileText, 
@@ -125,6 +126,11 @@ export const Summarizer: React.FC = () => {
 
   return (
     <main className="max-w-4xl mx-auto px-4 pt-8 pb-32">
+      <SEO 
+        title="AI Summarizer" 
+        description="Summarize long articles, documents, and text into concise, easy-to-read summaries with our AI summarizer." 
+        keywords="ai summarizer, text summarizer, summarize article, ai summary tool"
+      />
       {/* Header */}
       <div className="flex items-center gap-4 mb-8">
         <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">

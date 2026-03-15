@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SEO } from './SEO';
 import { motion } from 'motion/react';
 import { FileSearch, Loader2, Trash2, AlertCircle, Info, ShieldCheck, ShieldAlert, BarChart3, Clock, Type, Hash, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -33,6 +34,11 @@ export const PlagiarismChecker: React.FC = () => {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SEO 
+        title="Plagiarism Checker" 
+        description="Check for original content and potential plagiarism risks with our advanced plagiarism checker." 
+        keywords="plagiarism checker, check plagiarism, original content checker, plagiarism detection"
+      />
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Input Section */}
         <div className="lg:col-span-7 space-y-6">
